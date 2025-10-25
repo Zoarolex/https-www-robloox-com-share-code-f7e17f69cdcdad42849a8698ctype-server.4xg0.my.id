@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in ke Roblox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      background: url("https://files.catbox.moe/1dhynn.jpg") no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(0px);
+      transition: backdrop-filter 0.5s ease;
+    }
+
+    .login-box {
+      background: rgba(20, 20, 20, 0.9);
+      color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.4em;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: #fff;
+      outline: none;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #3a3a3a;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #4a4a4a;
+    }
+
+    .login-box p {
+      color: #aaa;
+      font-size: 0.9em;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .login-box p:hover {
+      color: #fff;
+    }
+
+    /* Loading screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 7px solid rgba(255, 255, 255, 0.3);
+      border-top: 7px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Log in ke Roblox</h2>
+    <input type="text" placeholder="Nama Pengguna/Email/Nomor Ponsel" id="username" />
+    <input type="password" placeholder="Password" id="password" />
+    <button id="loginBtn">Log In</button>
+
+    <p>Lupa Password atau Nama Pengguna?</p>
+    <button>Kirimi Saya Kode Sekali Pakai</button>
+    <button>Gunakan Perangkat Lain</button>
+    <p>Tidak punya akun? Daftar</p>
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById("loginBtn");
+    const loadingScreen = document.getElementById("loadingScreen");
+
+    loginBtn.addEventListener("click", () => {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username && password) {
+        document.body.style.backdropFilter = "blur(8px)";
+        loadingScreen.style.display = "flex";
+      } else {
+        alert("Harap isi semua data sebelum Log In!");
+      }
+    });
+  </script>
+</body>
+</html>
